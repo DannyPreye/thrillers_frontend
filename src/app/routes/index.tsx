@@ -5,7 +5,7 @@ import Loader from "../../components/Loader";
 
 const Register = React.lazy(() => import("../auth/Register"));
 const Login = React.lazy(() => import("../auth/Login"));
-const ProtectedRoute = React.lazy(() => import("../../protected/indext"));
+const ProtectedRoute = React.lazy(() => import("../../protected"));
 const Routes = () => {
     return (
         <Switch>

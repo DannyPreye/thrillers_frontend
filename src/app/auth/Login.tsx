@@ -30,7 +30,7 @@ const Login = () => {
                     `${BACKEND_URL}/auth/login`,
                     values
                 );
-                console.log(data);
+
                 cookie.set("token", data.token);
                 cookie.set("user", JSON.stringify(data.user));
                 navigate("/dashboard");

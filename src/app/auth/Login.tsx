@@ -6,10 +6,13 @@ import { ThreeDots } from "react-loader-spinner";
 import cookie from "js-cookie";
 import { toast } from "react-toastify";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const Login = () => {
+    const { login } = useContext(AuthContext);
     const navigate = useNavigate();
     const validationSchema = yup.object({
         email: yup
@@ -31,6 +34,7 @@ const Login = () => {
                     values
                 );
 
+                login({ ...data?.user, token: data?.token });
                 cookie.set("token", data.token);
                 cookie.set("user", JSON.stringify(data.user));
                 navigate("/dashboard");

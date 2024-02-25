@@ -12,7 +12,8 @@ export const AuthContext = createContext({
             token: "",
         } || null,
 
-    // login: () => {},
+    login: (_userData: UserType) => {},
+
     logout: () => {},
 });
 
@@ -40,6 +41,11 @@ const AuthContextProvider: React.FC<AuthContextProviderProps> = ({
         setAuthenticated(false);
         setUserData(null);
         window.location.href = "/";
+    };
+
+    const login = (userData: UserType) => {
+        setAuthenticated(true);
+        setUserData(userData);
     };
 
     useEffect(() => {
@@ -72,6 +78,7 @@ const AuthContextProvider: React.FC<AuthContextProviderProps> = ({
                 userData,
                 authenticated,
                 logout,
+                login,
             }}
         >
             {children}

@@ -92,7 +92,7 @@ const Register = () => {
                             id='first_name'
                             type='text'
                             label='First Name'
-                            placeholder='John Doe'
+                            placeholder='John'
                             value={formik.values.first_name}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -106,7 +106,7 @@ const Register = () => {
                             id='last_name'
                             type='text'
                             label='Last Name'
-                            placeholder='John Doe'
+                            placeholder='Doe'
                             value={formik.values.last_name}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}

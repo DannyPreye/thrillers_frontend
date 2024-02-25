@@ -5,7 +5,7 @@ import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 import cookie from "js-cookie";
 import { toast } from "react-toastify";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -103,9 +103,9 @@ const Login = () => {
                     </button>
                     <p className='text-center'>
                         Don't have an account?{" "}
-                        <Link to='/register' className='text-blue-800'>
+                        <NavLink to='/register' className='text-blue-800'>
                             Register
-                        </Link>
+                        </NavLink>
                     </p>
                 </form>
             </div>

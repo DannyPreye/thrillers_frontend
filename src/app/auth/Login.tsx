@@ -5,11 +5,12 @@ import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 import cookie from "js-cookie";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const Login = () => {
+    const navigate = useNavigate();
     const validationSchema = yup.object({
         email: yup
             .string()
@@ -32,7 +33,7 @@ const Login = () => {
                 console.log(data);
                 cookie.set("token", data.token);
                 cookie.set("user", JSON.stringify(data.user));
-                window.location.href = "/dashboard";
+                navigate("/dashboard");
             } catch (error) {
                 if (axios.isAxiosError(error)) {
                     toast.error(error.response?.data.message);
